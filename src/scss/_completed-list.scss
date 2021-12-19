@@ -1,0 +1,14 @@
+.completed-number {
+  font-weight: 600;
+  line-height: 22px;
+  color: $text-color;
+}
+
+.completed {
+  text-decoration-line: line-through;
+  color: $grey;
+}
+
+.completed-input {
+  color: $grey;
+}

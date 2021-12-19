@@ -1,0 +1,66 @@
+.header {
+  height: 64px;
+  background: $white;
+  @include flex-center;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+
+  &_container {
+    width: calc(100% - 48px);
+    margin: auto;
+    padding: 0 24px;
+    @include flex-center;
+    justify-content: space-between;
+  }
+
+
+  .logo-block {
+    width: 52px;
+    @include flex-center;
+    justify-content: center;
+    @include flex-column;
+
+    &_image {
+      height: 23.517147064208984px;
+      width: 18.133333206176758px;
+      border-radius: 0;
+    }
+
+    &_title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 7px;
+      color: $text-color;
+      margin-top: 2px;
+    }
+
+  }
+
+  &_title {
+    font-weight: 700;
+    color: $text-color;
+    line-height: 21px;
+
+  }
+
+  .avatar-block {
+    @include flex-center;
+
+    &_name {
+      color: $text-color;
+    }
+
+    &_img {
+      height: 32px;
+      width: 32px;
+      margin: 0 8px;
+      border-radius: 0;
+
+      &_chevron {
+        height: 4.0909647941589355px;
+        width: 7.04615592956543px;
+      }
+    }
+  }
+}
