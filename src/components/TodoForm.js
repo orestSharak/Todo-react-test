@@ -62,7 +62,6 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
                placeholder='+ Add a task, press Enter to save'
                value={input}
                onChange={onInputChange}
-               ref={input => input && input.focus()}
                required
         />
         <button className='add-task_submit'>{edit ? 'Save' : 'Add'}</button>
