@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Todo-react-test/static/css/main.8f240f55.css",
-    "main.js": "/Todo-react-test/static/js/main.cfa4641d.js",
+    "main.js": "/Todo-react-test/static/js/main.24452731.js",
     "static/media/delete.svg": "/Todo-react-test/static/media/delete.8c4659e09e11bf9824b5782a891eebd6.svg",
     "static/media/logo.svg": "/Todo-react-test/static/media/logo.1ec2512108b9151c6dcea69d97dc9a00.svg",
     "static/media/menu-item.svg": "/Todo-react-test/static/media/menu-item.9e85abfad6dad5c775e1d9923018a8bd.svg",
@@ -9,10 +9,10 @@
     "index.html": "/Todo-react-test/index.html",
     "static/media/chevron-down.svg": "/Todo-react-test/static/media/chevron-down.eaade4b45485c1427cd088871880d87d.svg",
     "main.8f240f55.css.map": "/Todo-react-test/static/css/main.8f240f55.css.map",
-    "main.cfa4641d.js.map": "/Todo-react-test/static/js/main.cfa4641d.js.map"
+    "main.24452731.js.map": "/Todo-react-test/static/js/main.24452731.js.map"
   },
   "entrypoints": [
     "static/css/main.8f240f55.css",
-    "static/js/main.cfa4641d.js"
+    "static/js/main.24452731.js"
   ]
 }
