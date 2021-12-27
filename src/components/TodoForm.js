@@ -30,6 +30,7 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
     setTodos(newTodo);
     setEdit('');
   };
+
   useEffect(() => {
     if (edit) {
       setInput(edit.title)

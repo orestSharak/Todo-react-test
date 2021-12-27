@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import MenuItem from '../images/menu-item.svg';
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import CompletedList from "./CompletedList";
+import Context from "./Context";
 
 function Main() {
 
@@ -28,42 +29,65 @@ function Main() {
   }, []);
 
 
-  return (
 
-    <main className='main'>
-      <div className='sidebar'>
-        <div className='menu-item'>
-          <img className='menu-item_img' src={MenuItem} alt='menu item'/>
+  const handleDelete = ({id}) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const handleEdit = ({id}) => {
+    const findTodo = todos.find((todo) => todo.id === id);
+    setEdit(findTodo);
+  };
+
+
+  const handleComplete = (todo) => {
+    setTodos(
+      todos.map((item) => {
+        if (item.id === todo.id) {
+          return {...item, completed: !item.completed};
+        }
+        return item;
+      })
+    );
+  };
+
+  //
+
+  return (
+    <Context.Provider value={{handleDelete, handleEdit, handleComplete}}>
+      <main className='main'>
+        <div className='sidebar'>
+          <div className='menu-item'>
+            <img className='menu-item_img' src={MenuItem} alt='menu item'/>
+          </div>
         </div>
-      </div>
-      <div className='container'>
-        <div className='content'>
-          <section className='content_left'>
-            <TodoForm
-              input={input}
-              setInput={setInput}
-              todos={todos}
-              setTodos={setTodos}
-              edit={edit}
-              setEdit={setEdit}
-            />
-            <div className='total-counter'>
-              <span className='total-counter_title'>Total: {todos.length}</span>
-            </div>
-            <TodoList
-              todos={todos}
-              setTodos={setTodos}
-              setEdit={setEdit}
-            />
-          </section>
-          <section className='content_completed'>
-            <CompletedList
-              todos={todos}
-              setTodos={setTodos}/>
-          </section>
+        <div className='container'>
+          <div className='content'>
+            <section className='content_left'>
+              <TodoForm
+                input={input}
+                setInput={setInput}
+                todos={todos}
+                setTodos={setTodos}
+                edit={edit}
+                setEdit={setEdit}
+              />
+              <div className='total-counter'>
+                <span className='total-counter_title'>Total: {todos.length}</span>
+              </div>
+              <TodoList
+                todos={todos}
+              />
+            </section>
+            <section className='content_completed'>
+              <CompletedList
+                todos={todos}
+              />
+            </section>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </Context.Provider>
   );
 }
 

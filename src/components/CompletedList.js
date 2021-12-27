@@ -1,24 +1,12 @@
-import React from 'react';
+import React, {useContext}  from 'react';
 import DeleteBtn from '../images/delete.svg';
+import Context from "./Context";
 
 
-function CompletedList({todos, setTodos}) {
+function CompletedList({todos}) {
 
-  const handleDelete = ({id}) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const {handleComplete, handleDelete} = useContext(Context);
 
-
-  const handleComplete = (todo) => {
-    setTodos(
-      todos.map((item) => {
-        if (item.id === todo.id) {
-          return {...item, completed: !item.completed};
-        }
-        return item;
-      })
-    );
-  };
   return (
     <div>
       <span className='completed-number'>Completed ({todos.filter(todo => todo.completed).length})</span>

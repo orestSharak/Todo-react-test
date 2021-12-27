@@ -1,29 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import DeleteBtn from '../images/delete.svg';
 import EditBtn from '../images/edit.svg';
+import Context from "./Context";
 
 
-function TodoList({todos, setTodos, setEdit}) {
+function TodoList({todos}) {
 
-  const handleEdit = ({id}) => {
-    const findTodo = todos.find((todo) => todo.id === id);
-    setEdit(findTodo);
-  };
-  const handleDelete = ({id}) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const handleComplete = (todo) => {
-    setTodos(
-      todos.map((item) => {
-        if (item.id === todo.id) {
-          return {...item, completed: !item.completed};
-        }
-        return item;
-      })
-    );
-  };
-
+  const {handleComplete, handleDelete, handleEdit} = useContext(Context);
 
   return (
     <div>
@@ -44,8 +27,10 @@ function TodoList({todos, setTodos, setEdit}) {
                      value={todo.title}
                      onChange={e => e.preventDefault()}
               />
-              <input type="image" className='edit-btn' src={EditBtn} alt='edit button' onClick={() => handleEdit(todo)}/>
-              <input type="image"  className='delete-btn' src={DeleteBtn} alt='delete button' onClick={() => handleDelete(todo)}/>
+              <input type="image" className='edit-btn' src={EditBtn} alt='edit button'
+                     onClick={() => handleEdit(todo)}/>
+              <input type="image" className='delete-btn' src={DeleteBtn} alt='delete button'
+                     onClick={() => handleDelete(todo)}/>
             </li>
           ))}
       </ul>
