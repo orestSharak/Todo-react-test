@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 
 
 function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
@@ -43,6 +43,14 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
     setInput(e.target.value)
   };
 
+  const focusRef = useRef(null);
+
+  useEffect(() => {
+    if(edit){
+      focusRef.current.focus();
+    }
+  }, [edit]);
+
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -55,6 +63,8 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
   };
 
 
+
+
   return (
     <div>
       <form className='add-task' onSubmit={onFormSubmit}>
@@ -63,6 +73,7 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
                placeholder='+ Add a task, press Enter to save'
                value={input}
                onChange={onInputChange}
+               ref={focusRef}
                required
         />
         <button className='add-task_submit'>{edit ? 'Save' : 'Add'}</button>

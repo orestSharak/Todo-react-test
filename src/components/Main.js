@@ -3,7 +3,7 @@ import MenuItem from '../images/menu-item.svg';
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import CompletedList from "./CompletedList";
-import Context from "./Context";
+import Context from "../context/context";
 
 function Main() {
 
@@ -29,7 +29,6 @@ function Main() {
   }, []);
 
 
-
   const handleDelete = ({id}) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -37,6 +36,7 @@ function Main() {
   const handleEdit = ({id}) => {
     const findTodo = todos.find((todo) => todo.id === id);
     setEdit(findTodo);
+
   };
 
 
@@ -50,6 +50,8 @@ function Main() {
       })
     );
   };
+
+
 
   //
 
@@ -71,6 +73,7 @@ function Main() {
                 setTodos={setTodos}
                 edit={edit}
                 setEdit={setEdit}
+
               />
               <div className='total-counter'>
                 <span className='total-counter_title'>Total: {todos.length}</span>

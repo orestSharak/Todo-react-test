@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import DeleteBtn from '../images/delete.svg';
 import EditBtn from '../images/edit.svg';
-import Context from "./Context";
+import Context from "../context/context";
 
 
 function TodoList({todos}) {
