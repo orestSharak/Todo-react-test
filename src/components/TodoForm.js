@@ -55,7 +55,7 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
   const onFormSubmit = (e) => {
     e.preventDefault();
     if (!edit) {
-      setTodos([...todos, {id: Date.now(), title: input, completed: false}]);
+      setTodos([{id: Date.now(), title: input, completed: false}, ...todos]);
       setInput('');
     } else {
       updateTodo(input, edit.id, edit.completed);

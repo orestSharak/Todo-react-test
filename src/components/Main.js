@@ -19,13 +19,26 @@ function Main() {
   const [todos, setTodos] = useState([]);
   const [edit, setEdit] = useState(null);
 
-
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
-      .then((response) => response.json())
-      .then((todos) => {
-        setTodos(todos);
-      })
+
+    // other solution
+
+    // fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
+    //   .then((response) => response.json())
+    //   .then((todos) => {
+    //     setTodos(todos);
+    //   })
+
+    const API_URL = 'https://jsonplaceholder.typicode.com/todos?_limit=3';
+    (async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        return setTodos(data);
+      } catch (err) {
+        console.log(err)
+      }
+    })();
   }, []);
 
 
@@ -52,8 +65,6 @@ function Main() {
   };
 
 
-
-  //
 
   return (
     <Context.Provider value={{handleDelete, handleEdit, handleComplete}}>
