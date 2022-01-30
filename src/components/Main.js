@@ -19,6 +19,7 @@ function Main() {
   const [todos, setTodos] = useState([]);
   const [edit, setEdit] = useState(null);
 
+
   useEffect(() => {
 
     // other solution
@@ -65,7 +66,6 @@ function Main() {
   };
 
 
-
   return (
     <Context.Provider value={{handleDelete, handleEdit, handleComplete}}>
       <main className='main'>
@@ -84,7 +84,6 @@ function Main() {
                 setTodos={setTodos}
                 edit={edit}
                 setEdit={setEdit}
-
               />
               <div className='total-counter'>
                 <span className='total-counter_title'>Total: {todos.length}</span>

@@ -9,12 +9,11 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
     (async () => {
       await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
-        body: JSON.stringify({
-          todos
-        }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
+        body: JSON.stringify({todos})
+
       })
         .then((response) => response.json())
         .then((json) => console.log('fetch data with POST method, json:', json));
@@ -22,6 +21,14 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
 
   }, [todos]);
 
+
+  const focusRef = useRef(null);
+
+  useEffect(() => {
+    if (edit) {
+      focusRef.current.focus();
+    }
+  }, [edit]);
 
   const updateTodo = (title, id, completed) => {
     const newTodo = todos.map((todo) =>
@@ -39,17 +46,11 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
     }
   }, [setInput, edit]);
 
-  const onInputChange = (e) => {
-    setInput(e.target.value)
+  const onInputChange = () => {
+    setInput(focusRef.current.value)
   };
 
-  const focusRef = useRef(null);
 
-  useEffect(() => {
-    if(edit){
-      focusRef.current.focus();
-    }
-  }, [edit]);
 
 
   const onFormSubmit = (e) => {
@@ -61,8 +62,6 @@ function TodoForm({input, setInput, todos, setTodos, edit, setEdit}) {
       updateTodo(input, edit.id, edit.completed);
     }
   };
-
-
 
 
   return (
