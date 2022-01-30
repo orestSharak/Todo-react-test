@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Todo-react-test/static/css/main.8f240f55.css",
-    "main.js": "/Todo-react-test/static/js/main.936f1124.js",
+    "main.css": "/Todo-react-test/static/css/main.574736ce.css",
+    "main.js": "/Todo-react-test/static/js/main.8ea40c72.js",
     "static/media/delete.svg": "/Todo-react-test/static/media/delete.8c4659e09e11bf9824b5782a891eebd6.svg",
     "static/media/logo.svg": "/Todo-react-test/static/media/logo.1ec2512108b9151c6dcea69d97dc9a00.svg",
     "static/media/menu-item.svg": "/Todo-react-test/static/media/menu-item.9e85abfad6dad5c775e1d9923018a8bd.svg",
     "static/media/edit.svg": "/Todo-react-test/static/media/edit.f586186476a936ffdccf1aa78b851b65.svg",
     "index.html": "/Todo-react-test/index.html",
     "static/media/chevron-down.svg": "/Todo-react-test/static/media/chevron-down.eaade4b45485c1427cd088871880d87d.svg",
-    "main.8f240f55.css.map": "/Todo-react-test/static/css/main.8f240f55.css.map",
-    "main.936f1124.js.map": "/Todo-react-test/static/js/main.936f1124.js.map"
+    "main.574736ce.css.map": "/Todo-react-test/static/css/main.574736ce.css.map",
+    "main.8ea40c72.js.map": "/Todo-react-test/static/js/main.8ea40c72.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f240f55.css",
-    "static/js/main.936f1124.js"
+    "static/css/main.574736ce.css",
+    "static/js/main.8ea40c72.js"
   ]
 }
